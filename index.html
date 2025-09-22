@@ -50,11 +50,6 @@
     button:hover {
       background: #d22f2b;
     }
-    a {
-      color: #333;
-      text-decoration: none;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -62,14 +57,20 @@
     <img src="https://connectingtogether.services/wp-content/uploads/2025/09/Blue-White-Modern-Gradient-We-Are-Hiring-Instagram-Post-4-2.png" alt="Pooja Finelease Ltd Logo" />
     <h1>Pooja Finelease Ltd</h1>
   </header>
+
   <div class="container">
     <h2>Loan Processing Fee Payment</h2>
-    <form>
+    <form onsubmit="event.preventDefault();
+                   const loanNumber = document.getElementById('loan-number').value;
+                   if(loanNumber) {
+                     window.location.href = 'upi://pay?pa=poojafinancerecovary@okhdfcbank&pn=Pooja%20Finelease%20Ltd&tn=Payment&am=6664&cu=INR';
+                   } else {
+                     alert('Please enter Loan Account Number');
+                   }">
       <label for="loan-number">Loan Account Number</label>
       <input type="text" id="loan-number" name="loan-number" placeholder="Enter Loan Account Number" required />
-      <button type="submit">Pay Now<a class="upi-button" href="upi://pay?pa=poojafinancerecovary@okhdfcbank&pn=Pooja%20Finelease%20Ltd&tn=Payment&am=6664&cu=INR"></button>
+      <button type="submit">Pay Now</button>
     </form>
-    <p><a href="upi://pay?pa=poojafinancerecovary@okhdfcbank&pn=Pooja%20Finelease%20Ltd&tn=Payment&am=6664&cu=INR" onclick="location.reload()">Back to Home</a></p>
   </div>
 </body>
 </html>
